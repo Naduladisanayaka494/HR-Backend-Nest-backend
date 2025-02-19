@@ -4,7 +4,7 @@ import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from '../jwt.strategy/jwt.strategy';
-import { UserModule } from '../user/user.module'; // ✅ Import UserModule
+// import { UserModule } from '../user/user.module'; // ✅ Import UserModule
 
 @Module({
   imports: [
@@ -13,7 +13,7 @@ import { UserModule } from '../user/user.module'; // ✅ Import UserModule
       secret: process.env.JWT_SECRET || 'secretKey',
       signOptions: { expiresIn: '1h' },
     }),
-    UserModule, // ✅ Add UserModule to imports
+    // UserModule, // ✅ Add UserModule to imports
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtStrategy],
